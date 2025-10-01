@@ -7,7 +7,7 @@
   <title>66game — Official 66 Game Platform | Fast, Safe & Fun</title>
   <meta name="description" content="66game (also written 66 game) is a fast, safe, and easy platform to play your favorite titles. Sign up free, enjoy events, and win rewards." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://seo168.github.io/" /> <!-- TODO: replace with your real URL -->
+  <link rel="canonical" href="https://username.github.io/" /> <!-- TODO: replace with your real URL -->
 
   <!-- Favicon (put favicon.ico at site root) -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -20,7 +20,7 @@
   <meta property="og:title" content="66game — Official 66 Game Platform" />
   <meta property="og:description" content="Play on 66game (66 game): fast, safe, easy to start. Free signup." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://seo168.github.io/" />
+  <meta property="og:url" content="https://username.github.io/" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1529336953121-a0f91ee1d27f?q=80&w=1200&auto=format&fit=crop" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -37,7 +37,7 @@
     header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,16,32,.6);border-bottom:1px solid #1e274a;z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .logo{width:32px;height:32px;border-radius:10px;background:conic-gradient(from 45deg,#0ea5e9,#22d3ee,#6366f1);box-shadow:0 0 30px rgba(14,165,233,.5)}
+    .brand .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:1px solid #2b3867;box-shadow:0 0 30px rgba(14,165,233,.35);} 
     .nav a.btn{padding:10px 16px;border:1px solid #2b3867;border-radius:10px}
     .nav a.btn.primary{background:var(--acc);border-color:var(--acc);color:#001c2b;font-weight:700}
     .nav a.btn.primary:hover{background:var(--acc-hover);border-color:var(--acc-hover)}
@@ -108,7 +108,8 @@
   <header aria-label="Main navigation">
     <div class="container nav">
       <div class="brand">
-        <span class="logo" aria-hidden="true"></span> <span>66game</span>
+        <img class="logo" src="assets/logo.png" alt="66game logo" width="32" height="32" />
+         <span>66game</span>
       </div>
       <nav style="display:flex;gap:8px;align-items:center">
         <a class="btn" href="#features">Features</a>
@@ -139,8 +140,8 @@
       </div>
 
       <figure class="hero-ill" aria-label="Product illustration">
-        <img src="https://images.unsplash.com/photo-1529336953121-a0f91ee1d27f?q=80&w=1400&auto=format&fit=crop"
-             alt="66game interface preview" />
+        <img src="assets/hero.jpg" alt="66game interface preview"
+             width="1200" height="900" loading="lazy" decoding="async" />
       </figure>
     </section>
 
@@ -227,5 +228,3 @@
   </script>
 </body>
 </html>
-
-
