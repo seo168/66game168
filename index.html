@@ -10,9 +10,9 @@
   <link rel="canonical" href="https://seo168.github.io/66game168/" />
 
   <!-- Favicon (project site: use relative paths) -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Open Graph / Twitter -->
@@ -36,7 +36,7 @@
     header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,16,32,.6);border-bottom:1px solid #1e274a;z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:1px solid #2b3867;box-shadow:0 0 30px rgba(14,165,233,.35);} 
+    .brand .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:1px solid #2b3867;box-shadow:0 0 30px rgba(14,165,233,.35);}
     .nav a.btn{padding:10px 16px;border:1px solid #2b3867;border-radius:10px}
     .nav a.btn.primary{background:var(--acc);border-color:var(--acc);color:#001c2b;font-weight:700}
     .nav a.btn.primary:hover{background:var(--acc-hover);border-color:var(--acc-hover)}
@@ -69,37 +69,60 @@
     footer{border-top:1px solid #1e274a;margin-top:40px}
     .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
 
+    /* ========== Mobile nav ========== */
+    .menu-toggle{
+      display:none; /* hidden on desktop */
+      background:#151c3b;border:1px solid #2b3867;color:#eaf2ff;
+      padding:10px 12px;border-radius:10px;font-size:18px;line-height:1
+    }
+    .menu{display:flex;gap:8px;align-items:center}
+
+    /* Mobile tweaks */
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .cta-section{grid-template-columns:1fr}
+      .container{padding:16px}
+      .hero{padding-block:32px}
+      .menu-toggle{display:inline-flex}       /* show burger on mobile */
+      .nav{position:relative}
+      .menu{
+        display:none;                         /* hide by default on mobile */
+        position:absolute; right:16px; top:56px;
+        flex-direction:column; gap:8px;
+        background:rgba(17,24,52,.95);
+        border:1px solid #24315e; border-radius:12px;
+        padding:10px; min-width:180px; z-index:20
+      }
+      .menu.open{display:flex}
+      .nav a.btn{width:100%; justify-content:center}
+      .brand .logo{width:28px;height:28px}
       .grid{grid-template-columns:1fr}
       .kpis{grid-template-columns:repeat(2,1fr)}
+      .cta-section{grid-template-columns:1fr}
     }
   </style>
 
   <!-- Structured Data (JSON-LD): WebSite + Organization -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebSite",
-  "name":"66game",
-  "url":"https://seo168.github.io/66game168/",
-  "potentialAction":{
-    "@type":"SearchAction",
-    "target":"https://seo168.github.io/66game168/?q={search_term_string}",
-    "query-input":"required name=search_term_string"
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"66game",
+    "url":"https://seo168.github.io/66game168/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://seo168.github.io/66game168/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
   }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"66game",
-  "url":"https://seo168.github.io/66game168/",
-  "logo":"https://seo168.github.io/66game168/favicon.ico",
-  "sameAs":[]
-}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"66game",
+    "url":"https://seo168.github.io/66game168/",
+    "logo":"https://seo168.github.io/66game168/assets/favicon.ico",
+    "sameAs":[]
+  }
   </script>
 </head>
 <body>
@@ -107,10 +130,15 @@
   <header aria-label="Main navigation">
     <div class="container nav">
       <div class="brand">
-        <img class="logo" src="assets/logo.png" alt="66game logo" width="32" height="32" />
-         <span>66game</span>
+        <img class="logo" src="assets/logo.png?v=2" alt="66game logo" width="32" height="32" />
+        <span>66game</span>
       </div>
-      <nav style="display:flex;gap:8px;align-items:center">
+
+      <!-- hamburger button for mobile -->
+      <button class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">☰</button>
+
+      <!-- main menu -->
+      <nav id="site-menu" class="menu">
         <a class="btn" href="#features">Features</a>
         <a class="btn" href="#pricing">Pricing</a>
         <a class="btn primary" href="#get-started">Get Started</a>
@@ -139,7 +167,7 @@
       </div>
 
       <figure class="hero-ill" aria-label="Product illustration">
-        <img src="assets/hero.jpg" alt="66game interface preview"
+        <img src="assets/hero.jpg?v=1" alt="66game interface preview"
              width="1200" height="900" loading="lazy" decoding="async" />
       </figure>
     </section>
@@ -224,9 +252,16 @@
   <script>
     // Auto year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('site-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
   </script>
 </body>
 </html>
-
-
-
