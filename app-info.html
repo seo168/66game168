@@ -19,52 +19,75 @@
   <meta property="og:image" content="https://seo168.github.io/66game168/assets/hero.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>
-    :root{
-      --bg:#0b1020; --card:#111834; --muted:#9fb0c7; --text:#e8eef7;
-      --acc:#0ea5e9; --acc-hover:#0284c7; --ring:#1d2b59;
-    }
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
-      background:linear-gradient(180deg,#0b1020 0%,#0d1430 100%);
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.6
-    }
-    a{color:var(--acc);text-decoration:none}
-    a:hover{color:var(--acc-hover)}
-    img{max-width:100%;height:auto;display:block}
+<style>
+  :root{
+    --bg:#100608; --card:#1a0e10; --muted:#d8c9c3; --text:#fff7f2;
+    --gold:#f4c15d; --gold-3:#c6932a; --border:#4a1b20;
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;padding:0;
+    background:linear-gradient(180deg,#100608 0%,#1a0e10 100%);
+    color:var(--text);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;
+  }
+  a{color:var(--gold);text-decoration:none}
+  a:hover{opacity:.9}
+  img{max-width:100%;height:auto;display:block}
 
-    .container{max-width:1120px;margin:0 auto;padding:24px}
+  /* ukuran samakan dgn index; kalau index kamu 920px, ubah angka di sini */
+  .container{max-width:1120px;margin:0 auto;padding:24px}
 
-    /* NAV – sama seperti index.html */
-    header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,16,32,.6);border-bottom:1px solid #1e274a;z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:1px solid #2b3867;box-shadow:0 0 30px rgba(14,165,233,.35);}
-    .nav a.btn{padding:10px 16px;border:1px solid #2b3867;border-radius:10px}
-    .nav a.btn.primary{background:var(--acc);border-color:var(--acc);color:#001c2b;font-weight:700}
-    .nav a.btn.primary:hover{background:var(--acc-hover);border-color:var(--acc-hover)}
+  /* NAV – gaya sama seperti index tapi warna emas/burgundy */
+  header{
+    position:sticky;top:0;z-index:10;
+    backdrop-filter:blur(10px);
+    background:rgba(26,14,16,.85);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+  .brand .logo{
+    width:32px;height:32px;border-radius:10px;object-fit:cover;
+    border:1px solid var(--gold-3);
+    box-shadow:0 0 30px rgba(244,193,93,.25);
+  }
+  .nav a.btn{
+    padding:10px 16px;border:1px solid var(--border);border-radius:10px;
+    background:transparent;color:var(--text);
+  }
+  .nav a.btn.primary{
+    background:linear-gradient(180deg,var(--gold),#e9b23a);
+    border-color:var(--gold-3);
+    color:#3a2200;font-weight:700;
+  }
+  .nav a.btn.primary:hover{filter:brightness(.98)}
 
-    /* Konten mengikuti gaya index */
-    .section{padding-block:28px}
-    h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
-    h2{margin:8px 0 6px}
-    .card{background:linear-gradient(180deg,#0f1738,rgba(15,23,56,.6));border:1px solid #253368;border-radius:16px;padding:18px}
-    .muted{color:var(--muted)}
+  /* KONTEN */
+  .section{padding-block:28px}
+  h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
+  h2{margin:8px 0 6px}
+  .muted{color:var(--muted)}
 
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .kv{display:flex;justify-content:space-between;gap:10px;padding:12px;border:1px solid #253368;border-radius:12px;background:#0e1536}
-    .kv strong{font-weight:800}
+  .card{
+    background:linear-gradient(180deg,#1a0e10,rgba(26,14,16,.6));
+    border:1px solid var(--border);
+    border-radius:16px;padding:18px;
+  }
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .kv{
+    display:flex;justify-content:space-between;gap:10px;padding:12px;
+    border:1px solid var(--border);border-radius:12px;background:#1a0e10
+  }
+  .kv strong{font-weight:800}
 
-    footer{border-top:1px solid #1e274a;margin-top:40px}
-    .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
+  footer{border-top:1px solid var(--border);margin-top:40px}
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
 
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-    }
-  </style>
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr}
+  }
+</style>
 
   <!-- Schema.org: MobileApplication -->
   <script type="application/ld+json">
