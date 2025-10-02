@@ -21,58 +21,41 @@
 
   <style>
     :root{
-      --bg:#100608;--card:#1a0e10;--muted:#d8c9c3;--text:#fff7f2;
-      --gold:#f4c15d;--gold-3:#c6932a;--border:#4a1b20
+      --bg:#0b1020; --card:#111834; --muted:#9fb0c7; --text:#e8eef7;
+      --acc:#0ea5e9; --acc-hover:#0284c7; --ring:#1d2b59;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
-    a{color:var(--gold);text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-
-    /* Layout — dibuat lebih sempit agar seragam */
-    .container{max-width:920px;margin:0 auto;padding:20px}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
-      background:rgba(26,14,16,.9);border-bottom:1px solid var(--border)}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:1px solid var(--gold-3)}
-    h1{font-size:26px;margin:12px 0}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
-
-    /* Buttons */
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;
-      border:1px solid var(--border);border-radius:10px;background:#230f13;color:var(--text);font-weight:700}
-    .btn.primary{background:linear-gradient(180deg,var(--gold),#e9b23a);color:#3a2200;border-color:var(--gold-3)}
-    .btn.ghost{background:transparent}
-
-    /* Nav (burger mobile + inline desktop) */
-    .menu-toggle{
-      appearance:none;cursor:pointer;background:#230f13;color:var(--text);
-      border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-weight:700
+    html,body{
+      margin:0;padding:0;background:linear-gradient(180deg,#0b1020 0%,#0d1430 100%);
+      color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6
     }
-    .menu{
-      display:none;position:absolute;top:60px;right:20px;left:20px;
-      background:var(--card);border:1px solid var(--border);border-radius:12px;
-      padding:10px;gap:8px;flex-direction:column
-    }
-    .menu .btn{width:100%}
-    .menu.open{display:flex}
-    @media (min-width:900px){
-      .menu{display:flex !important;position:static;flex-direction:row;background:transparent;border:0;padding:0;gap:10px}
-      .menu .btn{width:auto}
-      .menu-toggle{display:none}
-    }
+    a{color:var(--acc);text-decoration:none}
+    a:hover{color:var(--acc-hover)}
+    .container{max-width:1120px;margin:0 auto;padding:24px}
 
-    /* App info grid */
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .kv{display:flex;justify-content:space-between;gap:10px;padding:12px;border:1px solid var(--border);
-      border-radius:10px;background:#1a0e10}
+    /* NAV SAMA DENGAN INDEX.HTML */
+    header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,16,32,.6);border-bottom:1px solid #1e274a;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:1px solid #2b3867;box-shadow:0 0 30px rgba(14,165,233,.35);}
+    .nav a.btn{padding:10px 16px;border:1px solid #2b3867;border-radius:10px}
+    .nav a.btn.primary{background:var(--acc);border-color:var(--acc);color:#001c2b;font-weight:700}
+    .nav a.btn.primary:hover{background:var(--acc-hover);border-color:var(--acc-hover)}
+
+    /* Kartu & grid mengikuti gaya index */
+    .section{padding-block:40px}
+    .card{background:linear-gradient(180deg,#0f1738,rgba(15,23,56,.6));border:1px solid #253368;border-radius:16px;padding:18px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .kv{display:flex;justify-content:space-between;gap:10px;padding:12px;border:1px solid #253368;border-radius:12px;background:#0e1536}
     .kv strong{font-weight:800}
     .muted{color:var(--muted)}
-    footer{border-top:1px solid var(--border);margin-top:20px}
+    h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
+    h2{margin:8px 0 6px}
+    footer{border-top:1px solid #1e274a;margin-top:40px}
+    .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
+
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
-      h1{font-size:22px}
     }
   </style>
 
@@ -93,34 +76,33 @@
   </script>
 </head>
 <body>
-  <!-- HEADER + NAV -->
-  <header>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
-      <a href="index.html" class="brand">
-        <img class="logo" src="assets/logo.png" alt="66 game logo">
-        <strong>66 game</strong>
-      </a>
 
-      <button class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">☰</button>
-
-      <nav id="site-menu" class="menu" aria-label="Primary">
-        <a class="btn ghost" href="index.html#features">About us</a>
-        <a class="btn ghost" href="index.html#trust">Why Trust Us</a>
-        <a class="btn ghost" href="index.html#faq">FAQ</a>
+  <!-- NAVBAR IDENTIK DENGAN INDEX -->
+  <header aria-label="Main navigation">
+    <div class="container nav">
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" alt="66game logo" width="32" height="32" />
+        <span>66game</span>
+      </div>
+      <nav style="display:flex;gap:8px;align-items:center">
+        <a class="btn" href="index.html#features">Features</a>
+        <a class="btn" href="index.html#pricing">Pricing</a>
         <a class="btn" href="how-to-download.html">How to Download</a>
         <a class="btn" href="app-info.html" aria-current="page">App Info</a>
-        <a class="btn primary" href="index.html#download">Download</a>
+        <a class="btn primary" id="download" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" target="_blank" rel="noopener">Get Started</a>
       </nav>
     </div>
   </header>
 
   <!-- MAIN -->
   <main class="container" id="main">
-    <h1>66 game — App Information (India)</h1>
-    <p class="muted">Quick details about the 66 game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos. 18+ only — play responsibly.</p>
+    <section class="section">
+      <h1>66 game — App Information (India)</h1>
+      <p class="muted">Quick details about the 66 game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos. 18+ only — play responsibly.</p>
+    </section>
 
     <section class="card" aria-labelledby="app-details">
-      <h2 id="app-details" style="margin:0 0 10px">App details</h2>
+      <h2 id="app-details">App details</h2>
       <div class="grid">
         <div class="kv"><strong>Name</strong><span>66 game (Android)</span></div>
         <div class="kv"><strong>Version</strong><span>1.0.4</span></div>
@@ -130,14 +112,14 @@
         <div class="kv"><strong>Main Download</strong><span><a href="index.html#download">Go to Download button</a></span></div>
       </div>
 
-      <div class="cta" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
         <a class="btn primary" href="index.html#download">Click here to Download</a>
         <a class="btn" href="how-to-download.html">Can't install?</a>
       </div>
     </section>
 
     <section class="card" aria-labelledby="notes">
-      <h2 id="notes" style="margin:0 0 10px">Notes</h2>
+      <h2 id="notes">Notes</h2>
       <ul class="muted" style="margin:0;padding-left:18px">
         <li>Enable “Install unknown apps” on Android if prompted.</li>
         <li>Bonus availability depends on terms and local/state laws in India.</li>
@@ -146,7 +128,7 @@
     </section>
 
     <section class="card" aria-labelledby="disclaimer">
-      <h2 id="disclaimer" style="margin:0 0 10px">Disclaimer</h2>
+      <h2 id="disclaimer">Disclaimer</h2>
       <p class="muted" style="margin:0">
         66game.io is only for sharing direct download/referral links for 66GAME.COM and other gaming apk. This app is owned by 66GAME, contact them if you have any questions or queries. We do not own the app not do we claim to own the copyright for the images and logos. This website is just for APK download.
       </p>
@@ -155,22 +137,12 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container" style="padding:14px 0;">
+    <div class="container foot">
       <span>© <span id="y"></span> 66 game. All rights reserved.</span>
+      <span class="muted"><a href="index.html#privacy">Privacy Policy</a> · <a href="index.html#terms">Terms</a></span>
     </div>
   </footer>
 
-  <!-- JS: toggle menu mobile -->
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const toggle = document.querySelector('.menu-toggle');
-    const menu   = document.getElementById('site-menu');
-    if (toggle && menu){
-      toggle.addEventListener('click', () => {
-        const open = menu.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
