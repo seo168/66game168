@@ -35,10 +35,10 @@
     a:hover{opacity:.9}
     img{max-width:100%;height:auto;display:block}
 
-    /* ukuran container — samakan dengan index.html */
+    /* ukuran container — samakan dengan index.html bila perlu */
     .container{max-width:1120px;margin:0 auto;padding:24px}
 
-    /* NAV — struktur & gaya disamakan dengan index.html */
+    /* NAV — burger (mobile) + inline (desktop) */
     header{
       position:sticky;top:0;z-index:10;
       backdrop-filter:blur(10px);
@@ -61,6 +61,38 @@
       border-color:var(--gold-3);color:#3a2200;font-weight:700;
     }
     .nav a.btn.primary:hover{filter:brightness(.98)}
+
+    /* Hamburger button (garis tiga) */
+    .hamb{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:38px;border:1px solid var(--border);border-radius:10px;
+      background:#1a0e10;color:var(--text);cursor:pointer;
+    }
+    .hamb span{
+      display:block;width:18px;height:2px;background:var(--text);border-radius:2px;
+      position:relative;
+    }
+    .hamb span::before,.hamb span::after{
+      content:"";position:absolute;left:0;width:18px;height:2px;background:var(--text);border-radius:2px;
+    }
+    .hamb span::before{top:-6px}
+    .hamb span::after{top:6px}
+
+    /* Menu popup (mobile) */
+    .menu{
+      display:none;position:absolute;top:64px;right:24px;left:24px;
+      background:var(--card);border:1px solid var(--border);border-radius:12px;
+      padding:10px;gap:8px;flex-direction:column;
+    }
+    .menu .btn{width:100%}
+    .menu.open{display:flex}
+
+    /* Desktop: menu inline & sembunyikan burger */
+    @media (min-width:900px){
+      .menu{display:flex !important;position:static;flex-direction:row;background:transparent;border:0;padding:0;gap:10px}
+      .menu .btn{width:auto}
+      .hamb{display:none}
+    }
 
     /* konten */
     .section{padding-block:28px}
@@ -105,15 +137,21 @@
 </head>
 <body>
 
-  <!-- NAVBAR: struktur sama dengan index.html -->
+  <!-- NAVBAR: ada burger (garis tiga) -->
   <header aria-label="Main navigation">
     <div class="container nav">
       <div class="brand">
         <img class="logo" src="assets/logo.png?v=2" alt="66game logo" width="32" height="32" />
         <span>66game</span>
       </div>
-      <!-- perhatikan inline style pada <nav> = sama seperti index -->
-      <nav style="display:flex;gap:8px;align-items:center">
+
+      <!-- tombol burger untuk mobile -->
+      <button class="hamb" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">
+        <span></span>
+      </button>
+
+      <!-- menu -->
+      <nav id="site-menu" class="menu" aria-label="Primary">
         <a class="btn" href="index.html#features">Features</a>
         <a class="btn" href="index.html#pricing">Pricing</a>
         <a class="btn" href="how-to-download.html">How to Download</a>
@@ -176,6 +214,17 @@
     </div>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <!-- JS: toggle menu mobile (hamburger) -->
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const hamb = document.querySelector('.hamb');
+    const menu = document.getElementById('site-menu');
+    if (hamb && menu){
+      hamb.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
