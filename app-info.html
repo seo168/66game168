@@ -19,75 +19,73 @@
   <meta property="og:image" content="https://seo168.github.io/66game168/assets/hero.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-<style>
-  :root{
-    --bg:#100608; --card:#1a0e10; --muted:#d8c9c3; --text:#fff7f2;
-    --gold:#f4c15d; --gold-3:#c6932a; --border:#4a1b20;
-  }
-  *{box-sizing:border-box}
-  html,body{
-    margin:0;padding:0;
-    background:linear-gradient(180deg,#100608 0%,#1a0e10 100%);
-    color:var(--text);
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;
-  }
-  a{color:var(--gold);text-decoration:none}
-  a:hover{opacity:.9}
-  img{max-width:100%;height:auto;display:block}
+  <style>
+    :root{
+      --bg:#100608; --card:#1a0e10; --muted:#d8c9c3; --text:#fff7f2;
+      --gold:#f4c15d; --gold-3:#c6932a; --border:#4a1b20;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:linear-gradient(180deg,#100608 0%,#1a0e10 100%);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;
+    }
+    a{color:var(--gold);text-decoration:none}
+    a:hover{opacity:.9}
+    img{max-width:100%;height:auto;display:block}
 
-  /* ukuran samakan dgn index; kalau index kamu 920px, ubah angka di sini */
-  .container{max-width:1120px;margin:0 auto;padding:24px}
+    /* ukuran container — samakan dengan index.html */
+    .container{max-width:1120px;margin:0 auto;padding:24px}
 
-  /* NAV – gaya sama seperti index tapi warna emas/burgundy */
-  header{
-    position:sticky;top:0;z-index:10;
-    backdrop-filter:blur(10px);
-    background:rgba(26,14,16,.85);
-    border-bottom:1px solid var(--border);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-  .brand .logo{
-    width:32px;height:32px;border-radius:10px;object-fit:cover;
-    border:1px solid var(--gold-3);
-    box-shadow:0 0 30px rgba(244,193,93,.25);
-  }
-  .nav a.btn{
-    padding:10px 16px;border:1px solid var(--border);border-radius:10px;
-    background:transparent;color:var(--text);
-  }
-  .nav a.btn.primary{
-    background:linear-gradient(180deg,var(--gold),#e9b23a);
-    border-color:var(--gold-3);
-    color:#3a2200;font-weight:700;
-  }
-  .nav a.btn.primary:hover{filter:brightness(.98)}
+    /* NAV — struktur & gaya disamakan dengan index.html */
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(10px);
+      background:rgba(26,14,16,.85);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .logo{
+      width:32px;height:32px;border-radius:10px;object-fit:cover;
+      border:1px solid var(--gold-3);
+      box-shadow:0 0 30px rgba(244,193,93,.25);
+    }
+    .nav a.btn{
+      padding:10px 16px;border:1px solid var(--border);border-radius:10px;
+      background:transparent;color:var(--text);
+    }
+    .nav a.btn.primary{
+      background:linear-gradient(180deg,var(--gold),#e9b23a);
+      border-color:var(--gold-3);color:#3a2200;font-weight:700;
+    }
+    .nav a.btn.primary:hover{filter:brightness(.98)}
 
-  /* KONTEN */
-  .section{padding-block:28px}
-  h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
-  h2{margin:8px 0 6px}
-  .muted{color:var(--muted)}
+    /* konten */
+    .section{padding-block:28px}
+    h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
+    h2{margin:8px 0 6px}
+    .muted{color:var(--muted)}
+    .card{
+      background:linear-gradient(180deg,#1a0e10,rgba(26,14,16,.6));
+      border:1px solid var(--border);
+      border-radius:16px;padding:18px;
+    }
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .kv{
+      display:flex;justify-content:space-between;gap:10px;padding:12px;
+      border:1px solid var(--border);border-radius:12px;background:#1a0e10
+    }
+    .kv strong{font-weight:800}
 
-  .card{
-    background:linear-gradient(180deg,#1a0e10,rgba(26,14,16,.6));
-    border:1px solid var(--border);
-    border-radius:16px;padding:18px;
-  }
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .kv{
-    display:flex;justify-content:space-between;gap:10px;padding:12px;
-    border:1px solid var(--border);border-radius:12px;background:#1a0e10
-  }
-  .kv strong{font-weight:800}
+    footer{border-top:1px solid var(--border);margin-top:40px}
+    .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
 
-  footer{border-top:1px solid var(--border);margin-top:40px}
-  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
-
-  @media (max-width:900px){
-    .grid{grid-template-columns:1fr}
-  }
-</style>
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
 
   <!-- Schema.org: MobileApplication -->
   <script type="application/ld+json">
@@ -107,13 +105,14 @@
 </head>
 <body>
 
-  <!-- NAVBAR (identik gaya index) -->
+  <!-- NAVBAR: struktur sama dengan index.html -->
   <header aria-label="Main navigation">
     <div class="container nav">
       <div class="brand">
-        <img class="logo" src="assets/logo.png" alt="66game logo" width="32" height="32" />
+        <img class="logo" src="assets/logo.png?v=2" alt="66game logo" width="32" height="32" />
         <span>66game</span>
       </div>
+      <!-- perhatikan inline style pada <nav> = sama seperti index -->
       <nav style="display:flex;gap:8px;align-items:center">
         <a class="btn" href="index.html#features">Features</a>
         <a class="btn" href="index.html#pricing">Pricing</a>
