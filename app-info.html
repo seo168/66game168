@@ -26,14 +26,19 @@
     }
     *{box-sizing:border-box}
     html,body{
-      margin:0;padding:0;background:linear-gradient(180deg,#0b1020 0%,#0d1430 100%);
-      color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6
+      margin:0;padding:0;
+      background:linear-gradient(180deg,#0b1020 0%,#0d1430 100%);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6
     }
     a{color:var(--acc);text-decoration:none}
     a:hover{color:var(--acc-hover)}
+    img{max-width:100%;height:auto;display:block}
+
     .container{max-width:1120px;margin:0 auto;padding:24px}
 
-    /* NAV SAMA DENGAN INDEX.HTML */
+    /* NAV – sama seperti index.html */
     header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,16,32,.6);border-bottom:1px solid #1e274a;z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
@@ -42,15 +47,17 @@
     .nav a.btn.primary{background:var(--acc);border-color:var(--acc);color:#001c2b;font-weight:700}
     .nav a.btn.primary:hover{background:var(--acc-hover);border-color:var(--acc-hover)}
 
-    /* Kartu & grid mengikuti gaya index */
-    .section{padding-block:40px}
+    /* Konten mengikuti gaya index */
+    .section{padding-block:28px}
+    h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
+    h2{margin:8px 0 6px}
     .card{background:linear-gradient(180deg,#0f1738,rgba(15,23,56,.6));border:1px solid #253368;border-radius:16px;padding:18px}
+    .muted{color:var(--muted)}
+
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .kv{display:flex;justify-content:space-between;gap:10px;padding:12px;border:1px solid #253368;border-radius:12px;background:#0e1536}
     .kv strong{font-weight:800}
-    .muted{color:var(--muted)}
-    h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
-    h2{margin:8px 0 6px}
+
     footer{border-top:1px solid #1e274a;margin-top:40px}
     .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
 
@@ -77,7 +84,7 @@
 </head>
 <body>
 
-  <!-- NAVBAR IDENTIK DENGAN INDEX -->
+  <!-- NAVBAR (identik gaya index) -->
   <header aria-label="Main navigation">
     <div class="container nav">
       <div class="brand">
@@ -89,7 +96,7 @@
         <a class="btn" href="index.html#pricing">Pricing</a>
         <a class="btn" href="how-to-download.html">How to Download</a>
         <a class="btn" href="app-info.html" aria-current="page">App Info</a>
-        <a class="btn primary" id="download" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" target="_blank" rel="noopener">Get Started</a>
+        <a class="btn primary" href="index.html#download">Get Started</a>
       </nav>
     </div>
   </header>
@@ -98,10 +105,13 @@
   <main class="container" id="main">
     <section class="section">
       <h1>66 game — App Information (India)</h1>
-      <p class="muted">Quick details about the 66 game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos. 18+ only — play responsibly.</p>
+      <p class="muted">
+        Quick details about the 66 game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos.
+        18+ only — play responsibly.
+      </p>
     </section>
 
-    <section class="card" aria-labelledby="app-details">
+    <section class="card section" aria-labelledby="app-details">
       <h2 id="app-details">App details</h2>
       <div class="grid">
         <div class="kv"><strong>Name</strong><span>66 game (Android)</span></div>
@@ -118,7 +128,7 @@
       </div>
     </section>
 
-    <section class="card" aria-labelledby="notes">
+    <section class="card section" aria-labelledby="notes">
       <h2 id="notes">Notes</h2>
       <ul class="muted" style="margin:0;padding-left:18px">
         <li>Enable “Install unknown apps” on Android if prompted.</li>
@@ -127,10 +137,11 @@
       </ul>
     </section>
 
-    <section class="card" aria-labelledby="disclaimer">
+    <section class="card section" aria-labelledby="disclaimer">
       <h2 id="disclaimer">Disclaimer</h2>
       <p class="muted" style="margin:0">
-        66game.io is only for sharing direct download/referral links for 66GAME.COM and other gaming apk. This app is owned by 66GAME, contact them if you have any questions or queries. We do not own the app not do we claim to own the copyright for the images and logos. This website is just for APK download.
+        66game.io is only for sharing direct download/referral links for 66GAME.COM and other gaming apk. This app is owned by 66GAME, contact them if you have any questions or queries.
+        We do not own the app not do we claim to own the copyright for the images and logos. This website is just for APK download.
       </p>
     </section>
   </main>
