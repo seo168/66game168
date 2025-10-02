@@ -27,10 +27,55 @@
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
     a{color:var(--gold);text-decoration:none}
     a:hover{opacity:.9}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Lebar halaman (samakan jika perlu: 920px atau 1120px) */
     .container{max-width:920px;margin:0 auto;padding:20px}
-    header{border-bottom:1px solid var(--border);background:var(--card)}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:32px;height:32px;border-radius:10px;border:1px solid var(--gold-3);object-fit:cover}
+
+    /* NAV: hamburger (mobile) + menu inline (desktop) */
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(10px);
+      background:rgba(26,14,16,.85);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .logo{width:32px;height:32px;border-radius:10px;border:1px solid var(--gold-3);object-fit:cover;box-shadow:0 0 30px rgba(244,193,93,.25)}
+    .nav a.btn{padding:10px 16px;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--text)}
+    .nav a.btn.primary{background:linear-gradient(180deg,var(--gold),#e9b23a);border-color:var(--gold-3);color:#3a2200;font-weight:700}
+    .nav a.btn.primary:hover{filter:brightness(.98)}
+
+    /* Tombol hamburger */
+    .hamb{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:38px;border:1px solid var(--border);border-radius:10px;
+      background:#1a0e10;color:var(--text);cursor:pointer;
+    }
+    .hamb span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;position:relative}
+    .hamb span::before,.hamb span::after{
+      content:"";position:absolute;left:0;width:18px;height:2px;background:var(--text);border-radius:2px
+    }
+    .hamb span::before{top:-6px}
+    .hamb span::after{top:6px}
+
+    /* Menu pop-up (mobile) */
+    .menu{
+      display:none;position:absolute;top:64px;right:20px;left:20px;
+      background:var(--card);border:1px solid var(--border);border-radius:12px;
+      padding:10px;gap:8px;flex-direction:column;
+    }
+    .menu .btn{width:100%}
+    .menu.open{display:flex}
+
+    /* Desktop: menu inline, burger disembunyikan */
+    @media (min-width:900px){
+      .menu{display:flex !important;position:static;flex-direction:row;background:transparent;border:0;padding:0;gap:10px}
+      .menu .btn{width:auto}
+      .hamb{display:none}
+    }
+
+    /* Konten */
     h1{font-size:28px;margin:16px 0}
     .muted{color:var(--muted)}
     .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin:14px 0}
@@ -63,21 +108,31 @@
   </script>
 </head>
 <body>
-  <header>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-      <a href="index.html" class="brand">
+
+  <!-- NAV: brand + hamburger + menu -->
+  <header aria-label="Main navigation">
+    <div class="container nav">
+      <div class="brand">
         <img class="logo" src="assets/logo.png" alt="66game logo">
-        <strong>66game</strong>
-      </a>
-      <nav>
-        <a href="index.html" style="margin-right:10px">Home</a>
-        <a href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" target="_blank" rel="noopener" ><b>Download</b></a>
+        <span>66game</span>
+      </div>
+
+      <button class="hamb" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">
+        <span></span>
+      </button>
+
+      <nav id="site-menu" class="menu" aria-label="Primary">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="index.html#features">Features</a>
+        <a class="btn" href="app-info.html">App Info</a>
+        <a class="btn" href="how-to-download.html" aria-current="page">How to Download</a>
+        <a class="btn primary" href="index.html#download">Download</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <h1>How to Download & Install 66game apk</h1>
+    <h1>How to Download & Install 66game APK</h1>
     <p class="muted">
       Follow these quick steps. You can also tap the button below to jump straight to the Download button on the main page.
     </p>
@@ -90,9 +145,8 @@
     </div>
 
     <div class="cta">
-      <!-- This button jumps to the main page's Download button (needs id="download" on that button) -->
-      <a class="btn primary" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" target="_blank" rel="noopener" aria-label="Download 66game APK"> Direct APK Download
-      </a>
+      <a class="btn primary" href="index.html#download" aria-label="Jump to the Download button on main page">Go to Download Button</a>
+      <a class="btn" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" target="_blank" rel="noopener" aria-label="Direct APK download link">Direct APK Download</a>
     </div>
 
     <p class="muted" style="font-size:13px">
@@ -106,6 +160,17 @@
     </div>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <!-- Toggle hamburger -->
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const hamb = document.querySelector('.hamb');
+    const menu = document.getElementById('site-menu');
+    if (hamb && menu){
+      hamb.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
