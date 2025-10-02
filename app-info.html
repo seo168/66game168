@@ -119,44 +119,55 @@
     }
 
     /* ===== App Info Table ===== */
-    .table-wrap{overflow-x:auto;margin-top:8px}
-    .app-table{
-      width:100%;
-      border-collapse:separate;      /* supaya ada jarak antar baris */
-      border-spacing:0 10px;         /* jarak antar baris */
-    }
-    .app-table thead th{
-      text-align:center;
-      background:rgba(255,247,242,.06);
-      border:1px solid var(--border);
-      color:var(--muted);
-      padding:12px 14px;
-      font-weight:800;
-    }
-    .app-table tbody td{
-      text-align:center;             /* TEKS DI TENGAH */
-      background:#1a0e10;
-      border:1px solid var(--border);
-      padding:12px 14px;
-    }
-/* Rounded tiap baris */
-    .app-table tbody td:first-child{
-      border-top-left-radius:12px; border-bottom-left-radius:12px;
-    }
-    .app-table tbody td:last-child{
-      border-top-right-radius:12px; border-bottom-right-radius:12px;
-    }
+    /* ===== App Info Table (simetris) ===== */
+.table-wrap{overflow-x:auto;margin-top:8px}
+.app-table{
+  width:100%;
+  border-collapse:separate;      /* biar ada jarak antar baris */
+  border-spacing:0 12px;         /* jarak antar baris */
+  table-layout:fixed;            /* kunci kolom agar 50/50 */
+}
+.app-table col{ width:50% }      /* dua kolom sama lebar */
+
+.app-table thead th,
+.app-table tbody td{
+  text-align:center;             /* teks di tengah */
+  vertical-align:middle;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  overflow:hidden;               /* jaga rapi kalau teks panjang */
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.app-table thead th{
+  background:rgba(255,247,242,.06);
+  color:var(--muted);
+  font-weight:800;
+}
+.app-table tbody td{
+  background:#1a0e10;
+}
+
+/* Rounded tiap baris body (bukan thead) */
+.app-table tbody td:first-child{
+  border-top-left-radius:12px; border-bottom-left-radius:12px;
+}
+.app-table tbody td:last-child{
+  border-top-right-radius:12px; border-bottom-right-radius:12px;
+}
+
 /* Tombol di dalam sel */
-    .app-table .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px; border-radius:10px;
-      border:1px solid var(--border); background:#230f13; color:var(--text);
-      font-weight:700; text-decoration:none;
-    }
-    .app-table .btn.primary{
-      background:linear-gradient(180deg,var(--gold),#e9b23a);
-      border-color:var(--gold-3); color:#3a2200;
-    }
+.app-table .btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; border-radius:10px;
+  border:1px solid var(--border); background:#230f13; color:var(--text);
+  font-weight:700; text-decoration:none;
+}
+.app-table .btn.primary{
+  background:linear-gradient(180deg,var(--gold),#e9b23a);
+  border-color:var(--gold-3); color:#3a2200;
+}
+
   </style>
 
   <!-- Schema.org: MobileApplication -->
