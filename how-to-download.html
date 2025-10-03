@@ -147,7 +147,7 @@
       <nav id="site-menu" class="menu" aria-label="Primary">
         <a class="btn" href="index.html">Home</a>
         <a class="btn" href="app-info.html">66game Apk</a>
-        <a class="btn primary" id="download" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" aria-label="Download 66game APK">Download</a>
+        <a class="btn primary dl-btn" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" aria-label="Download 66game Apk">Download</a>
       </nav>
     </div>
   </header>
@@ -165,7 +165,7 @@
     </div>
 
     <div class="cta">
-      <a class="btn primary" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" aria-label="Direct APK download link">66game APK Download</a>
+      <a class="btn primary dl-btn" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" aria-label="Download 66game">Download</a>
     </div>
 
     <p class="muted" style="font-size:13px">18+ only. Availability depends on local/state laws in India. Please play responsibly.</p>
@@ -188,5 +188,38 @@
       });
     }
   </script>
+  const APK_URL = 'https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk';
+  const APK_NAME = '66game.apk';
+
+  async function forceDownload(url = APK_URL, filename = APK_NAME){
+    try {
+      // Ambil file via CORS
+      const res = await fetch(url, { mode: 'cors', credentials: 'omit', cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const blob = await res.blob();
+
+      // Buat objek URL & trigger download tanpa pindah halaman
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = objectUrl;
+      a.download = filename;     // nama file saat tersimpan
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 3000);
+    } catch (err) {
+      // Fallback: kalau CORS tidak diizinkan, minimal tetap download (pindah ke URL)
+      location.href = url;
+    }
+  }
+
+  // Kaitkan ke semua tombol dengan class .dl-btn
+  document.querySelectorAll('a.dl-btn').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      forceDownload(el.getAttribute('href') || APK_URL);
+    });
+  });
+</script>
 </body>
 </html>
