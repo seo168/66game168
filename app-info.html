@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
   <title>66game App Info — Version, Size, Welcome Bonus & Download (India)</title>
   <meta name="description" content="Official app info for 66game (India): version, size, welcome bonus, and direct APK download link. UPI ₹ deposits, fast withdrawals. Mobile-first. 18+ only."/>
   <meta name="robots" content="index,follow"/>
@@ -12,28 +13,22 @@
   <base href="https://seo168.github.io/66game168/">
 
   <!-- Open Graph / Twitter -->
+  <meta property="og:site_name" content="66game" />
   <meta property="og:title" content="66game App Info (India)"/>
   <meta property="og:description" content="Version, size, welcome bonus & APK link for 66game. UPI ₹ deposits, quick withdrawals. 18+ only."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://seo168.github.io/66game168/app-info.html"/>
   <meta property="og:image" content="https://seo168.github.io/66game168/assets/hero.jpg"/>
-  <!-- Added: site_name & locale -->
-  <meta property="og:site_name" content="66game"/>
-  <meta property="og:locale" content="en_IN"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <!-- Added: twitter title/desc/image -->
-  <meta name="twitter:title" content="66game App Info — Version, Size, Bonus & APK (India)"/>
-  <meta name="twitter:description" content="Version, size, ₹500 welcome bonus, and direct APK link for 66game. UPI deposits, fast withdrawals. 18+ only."/>
-  <meta name="twitter:image" content="https://seo168.github.io/66game168/assets/hero.jpg"/>
 
-  <!-- FAST: preconnect CDN APK -->
-  <link rel="preconnect" href="https://dvnm6cw04vasl.cloudfront.net" crossorigin>
-
-  <!-- Favicons (samakan dengan index.html) -->
+  <!-- Favicons -->
   <meta name="theme-color" content="#b31c18" />
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+
+  <!-- (opsional) Preload logo kecil untuk percepat header -->
+  <link rel="preload" as="image" href="assets/logo.png"/>
 
   <style>
     :root{
@@ -41,292 +36,122 @@
       --gold:#f4c15d; --gold-3:#c6932a; --border:#4a1b20;
     }
     *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
-      background:linear-gradient(180deg,#100608 0%,#1a0e10 100%);
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;
-    }
-    a{color:var(--gold);text-decoration:none}
-    a:hover{opacity:.9}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#100608 0%,#1a0e10 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--gold);text-decoration:none} a:hover{opacity:.9}
     img{max-width:100%;height:auto;display:block}
-
-    /* ukuran container — samakan dengan index.html bila perlu */
     .container{max-width:1120px;margin:0 auto;padding:24px}
 
-    /* NAV — burger (mobile) + inline (desktop) */
-    header{
-      position:sticky;top:0;z-index:10;
-      backdrop-filter:blur(10px);
-      background:rgba(26,14,16,.85);
-      border-bottom:1px solid var(--border);
-    }
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(26,14,16,.85);border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand .logo{
-      width:32px;height:32px;border-radius:10px;object-fit:cover;
-      border:1px solid var(--gold-3);
-      box-shadow:0 0 30px rgba(244,193,93,.25);
-    }
-    .nav a.btn{
-      padding:10px 16px;border:1px solid var(--border);border-radius:10px;
-      background:transparent;color:var(--text);
-    }
-    .nav a.btn.primary{
-      background:linear-gradient(180deg,var(--gold),#e9b23a);
-      border-color:var(--gold-3);color:#3a2200;font-weight:700;
-    }
+    .brand .logo{width:32px;height:32px;border-radius:10px;object-fit:cover;border:1px solid var(--gold-3);box-shadow:0 0 30px rgba(244,193,93,.25)}
+    .nav a.btn{padding:10px 16px;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--text)}
+    .nav a.btn.primary{background:linear-gradient(180deg,var(--gold),#e9b23a);border-color:var(--gold-3);color:#3a2200;font-weight:700}
     .nav a.btn.primary:hover{filter:brightness(.98)}
 
-    /* Hamburger button (garis tiga) */
-    .hamb{
-      display:inline-flex;align-items:center;justify-content:center;
-      width:42px;height:38px;border:1px solid var(--border);border-radius:10px;
-      background:#1a0e10;color:var(--text);cursor:pointer;
-    }
-    .hamb span{
-      display:block;width:18px;height:2px;background:var(--text);border-radius:2px;
-      position:relative;
-    }
-    .hamb span::before,.hamb span::after{
-      content:"";position:absolute;left:0;width:18px;height:2px;background:var(--text);border-radius:2px;
-    }
-    .hamb span::before{top:-6px}
-    .hamb span::after{top:6px}
+    .hamb{display:inline-flex;align-items:center;justify-content:center;width:42px;height:38px;border:1px solid var(--border);border-radius:10px;background:#1a0e10;color:var(--text);cursor:pointer}
+    .hamb span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;position:relative}
+    .hamb span::before,.hamb span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--text);border-radius:2px}
+    .hamb span::before{top:-6px}.hamb span::after{top:6px}
 
-    /* Menu popup (mobile) */
-    .menu{
-      display:none;position:absolute;top:64px;right:24px;left:24px;
-      background:var(--card);border:1px solid var(--border);border-radius:12px;
-      padding:10px;gap:8px;flex-direction:column;
-    }
+    .menu{display:none;position:absolute;top:64px;right:24px;left:24px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px;gap:8px;flex-direction:column}
     .menu .btn{width:100%}
     .menu.open{display:flex}
-
-    /* Desktop: menu inline & sembunyikan burger */
     @media (min-width:900px){
       .menu{display:flex !important;position:static;flex-direction:row;background:transparent;border:0;padding:0;gap:10px}
       .menu .btn{width:auto}
       .hamb{display:none}
     }
 
-    /* konten */
     .section{padding-block:28px}
     h1{font-size:clamp(24px,4.5vw,32px);margin:14px 0}
     h2{margin:8px 0 6px}
     .muted{color:var(--muted)}
-    .card{
-      background:linear-gradient(180deg,#1a0e10,rgba(26,14,16,.6));
-      border:1px solid var(--border);
-      border-radius:16px;padding:18px;
-    }
+    .card{background:linear-gradient(180deg,#1a0e10,rgba(26,14,16,.6));border:1px solid var(--border);border-radius:16px;padding:18px}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .kv{
-      display:flex;justify-content:space-between;gap:10px;padding:12px;
-      border:1px solid var(--border);border-radius:12px;background:#1a0e10
-    }
+    .kv{display:flex;justify-content:space-between;gap:10px;padding:12px;border:1px solid var(--border);border-radius:12px;background:#1a0e10}
     .kv strong{font-weight:800}
+
+    .table-wrap{overflow-x:auto;margin-top:8px}
+    .app-table{width:100%;border-collapse:separate;border-spacing:0 12px;table-layout:fixed}
+    .app-table col{width:50%}
+    .app-table thead th,.app-table tbody td{text-align:center;vertical-align:middle;padding:12px 14px;border:1px solid var(--border);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+    .app-table thead th{background:rgba(255,247,242,.06);color:var(--muted);font-weight:800}
+    .app-table tbody td{background:#1a0e10}
+    .app-table tbody td:first-child{border-top-left-radius:12px;border-bottom-left-radius:12px}
+    .app-table tbody td:last-child{border-top-right-radius:12px;border-bottom-right-radius:12px}
+    .app-table .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:#230f13;color:var(--text);font-weight:700;text-decoration:none}
+    .app-table .btn.primary{background:linear-gradient(180deg,var(--gold),#e9b23a);border-color:var(--gold-3);color:#3a2200}
+    .app-table .btn.full{width:100%;box-sizing:border-box;justify-content:center;padding:12px 14px;white-space:nowrap}
+
+    /* Watermark dekoratif di belakang judul */
+    .hero-head{position:relative;overflow:hidden}
+    .hero-head::before{content:"";position:absolute;inset:0;background:
+      no-repeat right center/ min(520px,45vw) url("assets/app-info-bg.png"),
+      none;opacity:.18;pointer-events:none;z-index:0}
+    .hero-head>*{position:relative;z-index:1}
+    @media (max-width:900px){.hero-head::before{background-position:center right 10px;background-size:min(400px,70vw);opacity:.35}}
 
     footer{border-top:1px solid var(--border);margin-top:40px}
     .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);padding-block:22px}
-
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    /* ===== App Info Table (simetris) ===== */
-    .table-wrap{overflow-x:auto;margin-top:8px}
-    .app-table{
-      width:100%;
-      border-collapse:separate;      /* jarak antar baris */
-      border-spacing:0 12px;         /* jarak antar baris */
-      table-layout:fixed;            /* kunci kolom agar 50/50 */
-    }
-    .app-table col{ width:50% }      /* dua kolom sama lebar */
-
-    .app-table thead th,
-    .app-table tbody td{
-      text-align:center;             /* teks di tengah */
-      vertical-align:middle;
-      padding:12px 14px;
-      border:1px solid var(--border);
-      overflow:hidden;               /* jaga rapi kalau teks panjang */
-      white-space:nowrap;
-      text-overflow:ellipsis;
-    }
-    .app-table thead th{
-      background:rgba(255,247,242,.06);
-      color:var(--muted);
-      font-weight:800;
-    }
-    .app-table tbody td{
-      background:#1a0e10;
-    }
-
-    /* Rounded tiap baris body (bukan thead) */
-    .app-table tbody td:first-child{
-      border-top-left-radius:12px; border-bottom-left-radius:12px;
-    }
-    .app-table tbody td:last-child{
-      border-top-right-radius:12px; border-bottom-right-radius:12px;
-    }
-
-    /* Tombol di dalam sel */
-    .app-table .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px; border-radius:10px;
-      border:1px solid var(--border); background:#230f13; color:var(--text);
-      font-weight:700; text-decoration:none;
-    }
-    .app-table .btn.primary{
-      background:linear-gradient(180deg,var(--gold),#e9b23a);
-      border-color:var(--gold-3); color:#3a2200;
-    }
-    .app-table .btn.full{
-      width:100%;
-      box-sizing:border-box;
-      justify-content:center;
-      padding:12px 14px;
-      white-space:nowrap;
-    }
-
-    /* ===== Watermark PNG di belakang judul ===== */
-    .hero-head{ 
-      position: relative; 
-      overflow: hidden;
-    }
-    .hero-head::before{
-      content: "";
-      position: absolute; inset: 0;
-      background-image: url("assets/app-info-bg.png?v=1");
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: min(520px, 45vw);
-      opacity: .18;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero-head > *{ position: relative; z-index: 1; }
-    @media (max-width: 900px){
-      .hero-head::before{
-        background-position: center right 10px;
-        background-size: min(400px, 70vw);
-        opacity: .35;
-      }
-    }
-
-    /* Visually hidden (untuk skip link & caption) */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
   </style>
 
-  <!-- Schema.org: MobileApplication -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MobileApplication",
-    "name":"66game",
-    "operatingSystem":"Android",
-    "applicationCategory":"GameApplication",
-    "inLanguage":"en-IN",
-    "softwareVersion":"1.0.4",
-    "downloadUrl":"https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk",
-    "publisher":{"@type":"Organization","name":"66GAME"},
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
-  }
-  </script>
-
-  <!-- JSON-LD: Breadcrumbs -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seo168.github.io/66game168/" },
-      { "@type": "ListItem", "position": 2, "name": "App Info", "item": "https://seo168.github.io/66game168/app-info.html" }
+  <!-- Schema.org -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"MobileApplication",
+    "name":"66game","operatingSystem":"Android","applicationCategory":"GameApplication","inLanguage":"en-IN",
+    "softwareVersion":"1.0.4","downloadUrl":"https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk",
+    "publisher":{"@type":"Organization","name":"66GAME"},"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
+  }</script>
+  <!-- Breadcrumbs -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://seo168.github.io/66game168/"},
+      {"@type":"ListItem","position":2,"name":"App Info","item":"https://seo168.github.io/66game168/app-info.html"}
     ]
-  }
-  </script>
+  }</script>
 </head>
 <body>
-  <!-- Skip link (aksesibilitas, tidak mengubah desain) -->
-  <a class="sr-only" href="#main">Skip to content</a>
-
-  <!-- NAVBAR -->
   <header aria-label="Main navigation">
     <div class="container nav">
       <div class="brand">
-        <img class="logo" src="assets/logo.png?v=2" alt="66game logo" width="32" height="32" />
+        <img class="logo" src="assets/logo.png" alt="66game logo" width="32" height="32" />
         <span>66game</span>
       </div>
-
-      <!-- tombol burger untuk mobile -->
-      <button class="hamb" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">
-        <span></span>
-      </button>
-
-      <!-- menu -->
+      <button class="hamb" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu"><span></span></button>
       <nav id="site-menu" class="menu" aria-label="Primary">
-        <a class="btn ghost" href="index.html">Home</a>
+        <a class="btn" href="index.html">Home</a>
         <a class="btn" href="how-to-download.html">How to Download</a>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="container" id="main">
     <section class="section hero-head">
       <h1>66game — App Information (India)</h1>
-      <p class="muted">
-        Quick details about the 66game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos.
-        18+ only — play responsibly.
-      </p>
+      <p class="muted">Quick details about the 66game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos. 18+ only — play responsibly.</p>
     </section>
 
     <section class="card section" aria-labelledby="app-details">
       <h2 id="app-details">App details</h2>
-
       <div class="table-wrap">
         <table class="app-table" role="table" aria-describedby="app-details">
-          <caption class="sr-only">Key information about the 66game Android app</caption>
           <colgroup><col><col></colgroup>
-          <thead>
-            <tr>
-              <th scope="col">Info</th>
-              <th scope="col">Details</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Info</th><th>Details</th></tr></thead>
           <tbody>
+            <tr><td><strong>Name</strong></td><td>66game</td></tr>
+            <tr><td><strong>Version</strong></td><td>1.0.4</td></tr>
+            <tr><td><strong>Size</strong></td><td>~20&nbsp;MB</td></tr>
+            <tr><td><strong>Welcome Bonus</strong></td><td>₹500</td></tr>
             <tr>
-              <td><strong>Name</strong></td>
-              <td>66game</td>
-            </tr>
-            <tr>
-              <td><strong>Version</strong></td>
-              <td>1.0.4</td>
-            </tr>
-            <tr>
-              <td><strong>Size</strong></td>
-              <td>~20&nbsp;MB</td>
-            </tr>
-            <tr>
-              <td><strong>Welcome Bonus</strong></td>
-              <td>₹500</td>
-            </tr>
-            <tr>
-              <td><strong>66game Apk</strong></td>
-              <td>
-                <a class="btn primary full"
-                   href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk"
-                   target="_blank" rel="noopener"
-                   aria-label="Download">
-                  Download
-                </a>
-              </td>
+              <td><strong>App Link</strong></td>
+              <td><a class="btn primary full" href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk" rel="noopener">Download</a></td>
             </tr>
           </tbody>
         </table>
       </div>
-
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;justify-content:flex-end">
         <a class="btn" href="how-to-download.html">Can't install?</a>
       </div>
@@ -337,7 +162,7 @@
       <ul class="muted" style="margin:0;padding-left:18px">
         <li>Enable “Install unknown apps” on Android if prompted.</li>
         <li>Bonus availability depends on terms and local/state laws in India.</li>
-        <li>Mobile-first UI for smoother play on most Android devices.</li>
+        <li>Mobile-first UI for smoother play on most Android devices. See the <a href="how-to-download.html">How to Download guide</a>.</li>
       </ul>
     </section>
 
@@ -345,12 +170,11 @@
       <h2 id="disclaimer">Disclaimer</h2>
       <p class="muted" style="margin:0">
         66game.io is only for sharing direct download/referral links for 66GAME.COM and other gaming apk. This app is owned by 66GAME, contact them if you have any questions or queries.
-        We do not own the app nor do we claim to own the copyright for the images and logos. This website is just for APK download.
+        We do not own the app nor claim copyright for images and logos. This website is just for APK download.
       </p>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container foot">
       <span>© <span id="y"></span> 66game. All rights reserved.</span>
@@ -358,7 +182,6 @@
     </div>
   </footer>
 
-  <!-- JS: toggle menu mobile (hamburger) -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const hamb = document.querySelector('.hamb');
