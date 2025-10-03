@@ -79,18 +79,19 @@
 
     /* Full-page background with fallbacks */
     .page-bg{
-      position:fixed; inset:0; z-index:-1; pointer-events:none;
+      position: fixed;
+      inset: 0;
+      z-index: 0;            /* sebelumnya -1 -> bikin ketutup body */
+      pointer-events: none;
       background:
         linear-gradient(180deg, rgba(16,6,8,.55), rgba(16,6,8,.75)),
-        url("assets/howto-bg-desktop.webp") center / cover no-repeat,
-        url("assets/hero.webp") center / cover no-repeat; /* fallback jika webp belum ada */
+        url("assets/howto-bg-desktop.webp") center / cover no-repeat;
     }
     @media (orientation:portrait){
       .page-bg{
         background:
           linear-gradient(180deg, rgba(16,6,8,.60), rgba(16,6,8,.80)),
-          url("assets/howto-bg-mobile.webp") center / cover no-repeat,
-          url("assets/hero.webp") center / cover no-repeat; /* fallback */
+          url("assets/howto-bg-mobile.webp") center / cover no-repeat;
       }
     }
 
