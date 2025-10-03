@@ -166,7 +166,13 @@
   background:linear-gradient(180deg,var(--gold),#e9b23a);
   border-color:var(--gold-3); color:#3a2200;
 }
-
+.app-table .btn.full{
+  width:100%;
+  box-sizing:border-box;
+  justify-content:center;   /* center text (karena .btn = inline-flex) */
+  padding:12px 14px;        /* samakan dengan padding sel */
+  white-space:nowrap;       /* biar tidak turun baris */
+}
   </style>
 
   <!-- Schema.org: MobileApplication -->
@@ -253,7 +259,7 @@
         <tr>
           <td><strong>App Link</strong></td>
           <td>
-            <a class="btn primary"
+            <a class="btn primary full"
                href="https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk"
                target="_blank" rel="noopener">
               Download
