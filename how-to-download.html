@@ -187,39 +187,6 @@
         hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     }
-  </script>
-  const APK_URL = 'https://dvnm6cw04vasl.cloudfront.net/apk/66game.1qbxp.apk';
-  const APK_NAME = '66game.apk';
-
-  async function forceDownload(url = APK_URL, filename = APK_NAME){
-    try {
-      // Ambil file via CORS
-      const res = await fetch(url, { mode: 'cors', credentials: 'omit', cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const blob = await res.blob();
-
-      // Buat objek URL & trigger download tanpa pindah halaman
-      const objectUrl = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = objectUrl;
-      a.download = filename;     // nama file saat tersimpan
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(objectUrl), 3000);
-    } catch (err) {
-      // Fallback: kalau CORS tidak diizinkan, minimal tetap download (pindah ke URL)
-      location.href = url;
-    }
-  }
-
-  // Kaitkan ke semua tombol dengan class .dl-btn
-  document.querySelectorAll('a.dl-btn').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      forceDownload(el.getAttribute('href') || APK_URL);
-    });
-  });
 </script>
 </body>
 </html>
