@@ -173,6 +173,39 @@
   padding:12px 14px;        /* samakan dengan padding sel */
   white-space:nowrap;       /* biar tidak turun baris */
 }
+    /* ===== Watermark PNG di belakang judul ===== */
+.hero-head{ 
+  position: relative; 
+  overflow: hidden;        /* biar gambar tidak keluar area section */
+}
+
+/* gambar dekoratif sebagai background, tanpa border */
+.hero-head::before{
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("assets/app-info-bg.png?v=1"); /* ganti jika beda nama */
+  background-repeat: no-repeat;
+  background-position: right center;    /* posisi gambar */
+  background-size: min(520px, 45vw);    /* ukuran responsif */
+  opacity: .18;                         /* atur transparansi */
+  pointer-events: none;                 /* supaya gak nge-block klik */
+  z-index: 0;                           /* di belakang teks */
+}
+
+/* pastikan teks berada di atas gambar */
+.hero-head > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile: gambar sedikit diperkecil & lebih halus */
+@media (max-width: 900px){
+  .hero-head::before{
+    background-position: center right 10px;
+    background-size: min(400px, 70vw);
+    opacity: .14;
+  }
+}
   </style>
 
   <!-- Schema.org: MobileApplication -->
@@ -216,13 +249,11 @@
 
   <!-- MAIN -->
   <main class="container" id="main">
-    <section class="section">
+    <section class="section hero-head">
       <h1>66game — App Information (India)</h1>
-      <p class="muted">
-        Quick details about the 66game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos.
-        18+ only — play responsibly.
-      </p>
+      <p class="muted">Quick details about the 66game Android app for Indian players. UPI ₹ deposits, fast withdrawals, free spins & daily promos. 18+ only — play responsibly.</p>
     </section>
+
 
     <section class="card section" aria-labelledby="app-details">
   <h2 id="app-details">App details</h2>
