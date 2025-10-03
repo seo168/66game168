@@ -78,10 +78,11 @@
     @media (max-width:900px){.container{padding:16px}}
 
     /* Full-page background with fallbacks */
+    /* === Background full page === */
     .page-bg{
       position: fixed;
       inset: 0;
-      z-index: 0;            /* sebelumnya -1 -> bikin ketutup body */
+      z-index: 0;                 /* background paling bawah */
       pointer-events: none;
       background:
         linear-gradient(180deg, rgba(16,6,8,.55), rgba(16,6,8,.75)),
@@ -95,10 +96,16 @@
       }
     }
 
-      header, main, footer {
-        position: relative;
-        z-index: 1;
-      }
+/* === Layering fix: pastikan menu & konten di atas background === */
+    header, main, footer {
+      position: relative;
+      z-index: 1;                 /* konten di atas .page-bg */
+    }
+    header {
+      z-index: 1000 !important;   /* header di atas semuanya */
+    }
+    .nav { position: relative; }  /* acuan posisi utk menu absolute */
+    .menu { z-index: 1100; }      /* popup menu (mobile) di atas header */
   </style>
 
   <!-- JSON-LD: HowTo -->
