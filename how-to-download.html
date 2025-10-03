@@ -121,18 +121,23 @@
 
     /* Full-page background */
     .page-bg{
-      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(16,6,8,.55), rgba(16,6,8,.75)),
-        url("assets/howto-bg-desktop.webp") center / cover no-repeat;
-    }
-    @media (orientation:portrait){
+         linear-gradient(180deg, rgba(16,6,8,.55), rgba(16,6,8,.75)),
+    /* jika .webp BELUM ada, ganti baris di bawah ke hero.jpg */
+         url("assets/howto-bg-desktop.webp") center / cover no-repeat;
+     }
+     @media (orientation:portrait){
       .page-bg{
         background:
           linear-gradient(180deg, rgba(16,6,8,.60), rgba(16,6,8,.80)),
+      /* jika .webp BELUM ada, ganti baris di bawah ke hero.jpg */
           url("assets/howto-bg-mobile.webp") center / cover no-repeat;
       }
     }
+
+/* Tambahkan ini supaya konten di atas background */
+    header, main, footer { position: relative; z-index: 1; }
 
     /* Aksesibilitas */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
