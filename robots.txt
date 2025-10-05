@@ -2,5 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://66gameblog.com/sitemap.xml
-# (opsional selama masa pindah; hapus nanti kalau sudah full pindah)
-Sitemap: https://seo168.github.io/66game168/sitemap.xml
